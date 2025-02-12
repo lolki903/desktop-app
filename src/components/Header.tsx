@@ -1,27 +1,16 @@
-import { useState } from 'react';
-import logo from "../assets/logojap.jpg";
-import { Theme } from "./Theme";
-import { FaBars } from 'react-icons/fa';
+import { FaBell } from "react-icons/fa";
 
-export const Header = () => {
-    const [isOpen, setIsOpen] = useState(true);
+const Header = () => {
+  return (
+    <div className="bg-green-header p-4 flex items-center justify-between">
+      <input
+        type="text"
+        placeholder="Rechercher dans L'arche de Noé"
+        className="w-1/2 p-2 rounded border border-gray-300"
+      />
+      <FaBell className="text-gray-600 text-2xl cursor-pointer" />
+    </div>
+  );
+};
 
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-        console.log(isOpen);
-    };
-    return (
-        <nav>
-            <div className="nav-header">
-                <img src={logo} alt="logo" />
-                <FaBars className="menu-icon" onClick={toggleMenu} />
-            </div>
-            <ul className={`sidemenu ${isOpen ? 'open' : 'close'}`}>
-                <li><a href="/" onClick={toggleMenu}>Home</a></li>
-                <li><a href="#" onClick={toggleMenu}>Sign Up</a></li>
-                <li><a href="/login" onClick={toggleMenu}>Login</a></li>
-                <li><Theme /></li>
-            </ul>
-        </nav>
-    );
-}
+export default Header;

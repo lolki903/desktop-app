@@ -1,16 +1,14 @@
 interface CardsProps {
     title: string;
-    descriptionCard: string;
+    icon: string;
+    backgroundColor: string;
 }
 
-export const Cards = ({ title, descriptionCard }: CardsProps) => {
+export const Cards = ({ title, icon, backgroundColor }: CardsProps) => {
     return (
-        <div className="card">
-            <div className="card-content">
-                <h2 className="card-title">{title}</h2>
-                <p className="card-text">{descriptionCard}</p>
-                <button className="card-button">En savoir plus...</button>
-            </div>
+        <div className={`card rounded-lg p-8 ${backgroundColor} m-4 first:ml-0`}>
+            <img src={icon} alt="icon" className="h-7 " />
+            <h3 className="text-sm">{title}</h3>
         </div>
     );
 }
